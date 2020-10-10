@@ -75,26 +75,6 @@ export default new Router({
             }
         },
         {
-            path: '/threeJs',
-            name: 'threeJs',
-            component: () => import('@/pages/ThreeJs/index.vue'),
-            meta: {
-                title: 'ThreeJs',
-                keepAlive: true,
-                isBack: false
-            }
-        },
-        {
-            path: '/threeDModel',
-            name: 'threeDModel',
-            component: () => import('@/pages/ThreeDModel/index.vue'),
-            meta: {
-                title: 'ThreeDModel',
-                keepAlive: true,
-                isBack: false
-            }
-        },
-        {
             path: '/CssDemo',
             name: 'CssDemo',
             component: () => import('@/pages/CssDemo/index.vue'),

@@ -46,14 +46,6 @@
 						path: 'elementUi',
 						name: 'ElementUI'
 					},
-					// { 
-					// 	path: 'threeJs',
-					// 	name: 'ThreeJs'
-					// },
-					{ 
-						path: 'threeDModel',
-						name: 'ThreeDModel'
-					},
 					{ 
 						path: 'CssDemo',
 						name: 'CssDemo'

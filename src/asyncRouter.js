@@ -48,25 +48,5 @@ export const asyncRouter = [
             keepAlive: true,
             isBack: false
         }
-    },
-    {
-        path: '/threeJs',
-        name: 'threeJs',
-        component: ThreeJs,
-        meta: {
-            title: 'ThreeJs',
-            keepAlive: true,
-            isBack: false
-        }
-    },
-    {
-        path: '/threeDModel',
-        name: 'threeDModel',
-        component: ThreeDModel,
-        meta: {
-            title: 'ThreeDModel',
-            keepAlive: true,
-            isBack: false
-        }
     }
 ];
