@@ -5,7 +5,7 @@ function resolve(dir) {
     return path.join(__dirname, dir);
 }
 
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     // 跨域配置
@@ -38,10 +38,10 @@ module.exports = {
         .set('page', resolve('page'))
         .set('utils', resolve('utils'))
     },
-    // 代码分析
-    configureWebpack: {
-        plugins: [
-            new BundleAnalyzerPlugin()
-        ]
-    }
+    // // 代码分析
+    // configureWebpack: {
+    //     plugins: [
+    //         new BundleAnalyzerPlugin()
+    //     ]
+    // }
 };

@@ -85,6 +85,16 @@ export default new Router({
             }
         },
         {
+            path: '/MyPromise',
+            name: 'MyPromise',
+            component: () => import('@/pages/MyPromise/index.vue'),
+            meta: {
+                title: '手写promise',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
             path: '*',
             redirect: '/404',
             component: () => import('@/pages/NotFound/index.vue'),

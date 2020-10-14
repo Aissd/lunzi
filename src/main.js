@@ -16,8 +16,8 @@ router.beforeEach((to, from, next) => {
 	next();
 });
 
-console.log(process, process.env.NODE_ENV);
-console.log(process.env.VUE_APP_API);
+// console.log(process, process.env.NODE_ENV);
+// console.log(process.env.VUE_APP_API);
 
 new Vue({
 	router,
