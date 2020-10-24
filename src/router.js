@@ -49,7 +49,7 @@ export default new Router({
             name: 'sassDemo',
             component: () => import('@/pages/SassDemo/index.vue'),
             meta: {
-                title: '生命周期demo',
+                title: 'sassDemo',
                 keepAlive: true,
                 isBack: false
             }
@@ -90,6 +90,26 @@ export default new Router({
             component: () => import('@/pages/MyPromise/index.vue'),
             meta: {
                 title: '手写promise',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
+            path: '/closeWindowTip',
+            name: 'closeWindowTip',
+            component: () => import('@/pages/CloseWindowTip/index.vue'),
+            meta: {
+                title: '关闭window询问',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
+            path: '/Directive',
+            name: 'Directive',
+            component: () => import('@/pages/Directive/index.vue'),
+            meta: {
+                title: 'vue-指令',
                 keepAlive: true,
                 isBack: false
             }
