@@ -115,6 +115,36 @@ export default new Router({
             }
         },
         {
+            path: '/BeforeAfter',
+            name: 'BeforeAfter',
+            component: () => import('@/pages/BeforeAfter/index.vue'),
+            meta: {
+                title: 'before&after动态赋值',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
+            path: '/EventModifiers',
+            name: 'EventModifiers',
+            component: () => import('@/pages/EventModifiers/index.vue'),
+            meta: {
+                title: '事件修饰符',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
+            path: '/VueExtend',
+            name: 'VueExtend',
+            component: () => import('@/pages/VueExtend/index.vue'),
+            meta: {
+                title: 'vue.extend封装',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
             path: '*',
             redirect: '/404',
             component: () => import('@/pages/NotFound/index.vue'),
