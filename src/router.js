@@ -145,6 +145,26 @@ export default new Router({
             }
         },
         {
+            path: '/AttrsInheriAttrs',
+            name: 'AttrsInheriAttrs',
+            component: () => import('@/pages/AttrsInheriAttrs/index.vue'),
+            meta: {
+                title: '$attrs和inheritAttrs',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
+            path: '/Filter',
+            name: 'Filter',
+            component: () => import(/* webpackChunkName: "Filter" */'@/pages/Filter/index.vue'),
+            meta: {
+                title: '过滤器的使用',
+                keepAlive: true,
+                isBack: false
+            }
+        },
+        {
             path: '*',
             redirect: '/404',
             component: () => import('@/pages/NotFound/index.vue'),
