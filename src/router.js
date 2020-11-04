@@ -4,8 +4,10 @@ const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
     return originalPush.call(this, location).catch(err => err);
 }
-
 Vue.use(Router);
+
+import VueRouter from "@/pages/VueRouter/index.vue";
+
 export default new Router({
     mode: 'history',
 	base: process.env.BASE_URL,
@@ -17,141 +19,127 @@ export default new Router({
         {
             path: '/Home',
             name: 'home',
-            component: () => import('@/pages/Home/index.vue'),
+            component: () => import(/* webpackChunkName: "Home" */'@/pages/Home/index.vue'),
             meta: {
                 title: '首页',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/lazyLoadAction',
             name: 'lazyLoadAction',
-            component: () => import('@/pages/LazyLoadAction/index.vue'),
+            component: () => import(/* webpackChunkName: "LazyLoadAction" */'@/pages/LazyLoadAction/index.vue'),
             meta: {
                 title: '模拟懒加载图片事件',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/lifeCycle',
             name: 'lifeCycle',
-            component: () => import('@/pages/LifeCycle/index.vue'),
+            component: () => import(/* webpackChunkName: "LifeCycle" */'@/pages/LifeCycle/index.vue'),
             meta: {
                 title: '生命周期demo',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/sassDemo',
             name: 'sassDemo',
-            component: () => import('@/pages/SassDemo/index.vue'),
+            component: () => import(/* webpackChunkName: "SassDemo" */'@/pages/SassDemo/index.vue'),
             meta: {
                 title: 'sassDemo',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/throttle',
             name: 'throttle',
-            component: () => import('@/pages/Throttle/index.vue'),
+            component: () => import(/* webpackChunkName: "Throttle" */'@/pages/Throttle/index.vue'),
             meta: {
                 title: '抖动',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/elementUi',
             name: 'elementUi',
-            component: () => import('@/pages/ElementUI/index.vue'),
+            component: () => import(/* webpackChunkName: "ElementUI" */'@/pages/ElementUI/index.vue'),
             meta: {
                 title: 'ElementUI',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/CssDemo',
             name: 'CssDemo',
-            component: () => import('@/pages/CssDemo/index.vue'),
+            component: () => import(/* webpackChunkName: "CssDemo" */'@/pages/CssDemo/index.vue'),
             meta: {
                 title: 'CssDemo',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/MyPromise',
             name: 'MyPromise',
-            component: () => import('@/pages/MyPromise/index.vue'),
+            component: () => import(/* webpackChunkName: "MyPromise" */'@/pages/MyPromise/index.vue'),
             meta: {
                 title: '手写promise',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/closeWindowTip',
             name: 'closeWindowTip',
-            component: () => import('@/pages/CloseWindowTip/index.vue'),
+            component: () => import(/* webpackChunkName: "CloseWindowTip" */'@/pages/CloseWindowTip/index.vue'),
             meta: {
                 title: '关闭window询问',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/Directive',
             name: 'Directive',
-            component: () => import('@/pages/Directive/index.vue'),
+            component: () => import(/* webpackChunkName: "Directive" */'@/pages/Directive/index.vue'),
             meta: {
                 title: 'vue-指令',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/BeforeAfter',
             name: 'BeforeAfter',
-            component: () => import('@/pages/BeforeAfter/index.vue'),
+            component: () => import(/* webpackChunkName: "BeforeAfter" */'@/pages/BeforeAfter/index.vue'),
             meta: {
                 title: 'before&after动态赋值',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/EventModifiers',
             name: 'EventModifiers',
-            component: () => import('@/pages/EventModifiers/index.vue'),
+            component: () => import(/* webpackChunkName: "EventModifiers" */'@/pages/EventModifiers/index.vue'),
             meta: {
                 title: '事件修饰符',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/VueExtend',
             name: 'VueExtend',
-            component: () => import('@/pages/VueExtend/index.vue'),
+            component: () => import(/* webpackChunkName: "VueExtend" */'@/pages/VueExtend/index.vue'),
             meta: {
                 title: 'vue.extend封装',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
             path: '/AttrsInheriAttrs',
             name: 'AttrsInheriAttrs',
-            component: () => import('@/pages/AttrsInheriAttrs/index.vue'),
+            component: () => import(/* webpackChunkName: "AttrsInheriAttrs" */'@/pages/AttrsInheriAttrs/index.vue'),
             meta: {
                 title: '$attrs和inheritAttrs',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
             }
         },
         {
@@ -160,14 +148,68 @@ export default new Router({
             component: () => import(/* webpackChunkName: "Filter" */'@/pages/Filter/index.vue'),
             meta: {
                 title: '过滤器的使用',
-                keepAlive: true,
-                isBack: false
+                keepAlive: true
+            }
+        },
+        {
+            path: '/Array',
+            name: 'Array',
+            component: () => import(/* webpackChunkName: "Array" */'@/pages/Array/index.vue'),
+            meta: {
+                title: 'vue2中监测数组变化',
+                keepAlive: true
+            }
+        },
+        {
+            path: '/VueRouter',
+            name: 'VueRouter',
+            component: VueRouter,
+            // component: () => import(/* webpackChunkName: "VueRouter" */'@/pages/VueRouter/index.vue'),
+            meta: {
+                title: 'VueRouter路由',
+                keepAlive: true
+            },
+            children: [
+                {
+                    path: '', // 相当于 localhost:8080/VueRouter
+                    // path: '/UserHome', // 相当于 localhost:8080/UserHome
+                    name: 'UserHome', // 相当于 localhost:8080/VueRoute/UserHome
+                    component: () => import(/* webpackChunkName: "UserHome" */'@/pages/VueRouter/components/UserHome.vue')
+                },
+                {
+                    path: 'UserDate',
+                    name: 'UserDate',
+                    component: () => import(/* webpackChunkName: "UserDate" */'@/pages/VueRouter/components/UserDate.vue')
+                },
+                {
+                    path: 'UserPost',
+                    name: 'UserPost',
+                    component: () => import(/* webpackChunkName: "UserPost" */'@/pages/VueRouter/components/UserPost.vue')
+                }
+            ]
+        },
+        {
+            path: '/SetInterval',
+            name: 'SetInterval',
+            component: () => import(/* webpackChunkName: "SetInterval" */'@/pages/SetInterval/index.vue'),
+            meta: {
+                title: 'SetInterval定时任务',
+                keepAlive: true
+            }
+        },
+        {
+            path: '/VuexUse',
+            name: 'VuexUse',
+            component: () => import(/* webpackChunkName: "VuexUse" */'@/pages/VuexUse/index.vue'),
+            meta: {
+                title: 'VuexUse',
+                keepAlive: true
             }
         },
         {
             path: '*',
             redirect: '/404',
-            component: () => import('@/pages/NotFound/index.vue'),
+            component: () => import(/* webpackChunkName: "404" */'@/pages/NotFound/index.vue'),
             hidden: true
         }
     ]
