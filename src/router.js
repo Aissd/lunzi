@@ -207,6 +207,33 @@ export default new Router({
             }
         },
         {
+            path: '/Layout',
+            name: 'Layout',
+            component: () => import(/* webpackChunkName: "Layout" */'@/pages/Layout/index.vue'),
+            meta: {
+                title: 'Layout',
+                keepAlive: true
+            }
+        },
+        {
+            path: '/GaoDeMap',
+            name: 'GaoDeMap',
+            component: () => import(/* webpackChunkName: "GaoDeMap" */'@/pages/GaoDeMap/index.vue'),
+            meta: {
+                title: '高德地图',
+                keepAlive: true
+            }
+        },
+        {
+            path: '/Test',
+            name: 'Test',
+            component: () => import(/* webpackChunkName: "Test" */'@/pages/Test/index.vue'),
+            meta: {
+                title: 'Test',
+                keepAlive: true
+            }
+        },
+        {
             path: '*',
             redirect: '/404',
             component: () => import(/* webpackChunkName: "404" */'@/pages/NotFound/index.vue'),

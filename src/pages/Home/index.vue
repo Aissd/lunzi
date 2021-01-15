@@ -19,6 +19,9 @@
     };
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+	ul {
+		padding: 30px;
+		font-size: 16px;
+	}
 </style>
