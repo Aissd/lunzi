@@ -1,4 +1,4 @@
-import Vue from 'Vue';
+import Vue from 'vue';
 import myToast from './myToast.vue';
 
 const myToastConstructor = Vue.extend(myToast);
