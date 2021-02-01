@@ -22,10 +22,8 @@
                 size='mini'
                 :isSelection='true'
                 :isIndex='true'
-                :isPagination='true'
-                :isHandle='true'
-                :tableData='tableData' 
-                :tableCols='tableCols' 
+                :tdList='tdList' 
+                :thList='thList' 
                 :tableHandles='tableHandles'
                 :pagination='pagination'>
             </ces-table>
@@ -46,7 +44,7 @@ export default {
     },
     data() {
         let sexs = [
-            { label: '男', value: 'M'}, {label: '女', value: 'F'}
+            { label: '男', value: 'M'}, {label: '女', value: 'F' }
         ];
         let sexProps = { label: 'label', value: 'value' };
         let intersts = [
@@ -72,8 +70,7 @@ export default {
                 {label:'查询',type:'primary',handle:()=>this.onHandleSearchFn()},
                 {label:'重置',type:'primary',handle:()=>this.onHandleResetFn()}
             ],
-            // 表格
-            tableData: [
+            tdList: [
                 {name:'张三',age:'12',sex:'男',interst:'女'},
                 {name:'筱华',age:'27',sex:'女',interst:'羽毛球'},
                 {name:'张三',age:'12',sex:'男',interst:'女'},
@@ -82,7 +79,7 @@ export default {
                 {name:'筱华',age:'27',sex:'女',interst:'羽毛球'},
                 {name:'筱华',age:'27',sex:'女',interst:'羽毛球'}
             ],
-            tableCols: [
+            thList: [
                 { label: '姓名', prop: 'name' },
                 { label: '年龄', prop: 'age' },
                 { label: '性别', prop: 'sex' },
@@ -93,7 +90,7 @@ export default {
                 ]}
             ],
             tableHandles: [
-                { label:'新增', type:'primary', handle:() => this.onHandleAddFn() }
+                // { label:'新增', type:'primary', handle:() => this.onHandleAddFn() }
             ],
             pagination: {
                 pageSize: 2,
@@ -135,12 +132,12 @@ export default {
             console.log('点击重置');
         },
         // 翻页
-        pageChangeFn(args) {
-            console.log(args);
+        pageChangeFn(currentPage) {
+            console.log(currentPage);
         },
         // 切换页数
-        pageSizeChangeFn(args) {
-            console.log(args);
+        pageSizeChangeFn(currentPage) {
+            console.log(currentPage);
         },
     },
 }
