@@ -2,31 +2,36 @@
   <div class="container">
         <div class="components-bar">
             <p>switch按钮，关闭时有二次确认</p>
-            <SwitchConfirm
+            <switch-confirm
                 :switchModel= isSwitchOn
                 confirmText="确认要关掉吗"
                 :switchConfirm = switchConfirmFn
                 :switchCancel= switchCancelFn
             >
-            </SwitchConfirm>
+            </switch-confirm>
+        </div>
+        <div class="components-bar">
+            <validate-form
+                :isInline="true"
+                :validateForm="validateForm"
+            >
+            </validate-form>
         </div>
         <div class="ces-main">
             <search-form 
-                size='mini'
                 labelWidth='80px' 
                 :searchData="searchData"
                 :searchComponents="searchComponents"
                 :searchHandle="searchHandle">
             </search-form>
-            <ces-table 
-                size='mini'
-                :isSelection='true'
-                :isIndex='true'
-                :tdList='tdList' 
-                :thList='thList' 
-                :tableHandles='tableHandles'
-                :pagination='pagination'>
-            </ces-table>
+            <table-list 
+                :isSelection="true"
+                :isIndex="true"
+                :tdList="tdList" 
+                :thList="thList" 
+                :tableHandles="tableHandles"
+                :pagination="pagination">
+            </table-list>
         </div>
     </div>
 </template>
@@ -34,13 +39,15 @@
 <script>
 import SwitchConfirm from './components/SwitchConfirm.vue';
 import SearchForm from './components/searchForm.vue';
-import cesTable from './components/Table.vue';
+import TableList from './components/TableList.vue';
+import ValidateForm from './components/ValidateForm.vue';
 export default {
     name: 'componentsPage',
     components: {
         SwitchConfirm,
-        cesTable,
-        SearchForm
+        TableList,
+        SearchForm,
+        ValidateForm,
     },
     data() {
         let sexs = [
@@ -98,7 +105,16 @@ export default {
                 total: 8,
                 handlePageNumChange: (args) => this.pageChangeFn(args),
                 handlePageSizeChange: (args) => this.pageSizeChangeFn(args)
-            }
+            },
+            validateForm: {
+                rules: {
+                    areaName: [{ required: true, message: '请输入区域名称', trigger: 'blur' }]
+                },
+                components: [
+                    { type: 'input', label: '区域名称：', prop: 'areaName', value: '', placeholder: '请输入区域名称', clearable: true, change: () => {} },
+                    { type: 'textarea', label: '描述：', prop: 'areaContent', value: '', placeholder: '请输入区域描述内容', clearable: true, change: () => {} },
+                ]
+            },
         }
     },
     methods: {
