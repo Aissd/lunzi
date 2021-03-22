@@ -6,50 +6,88 @@
 </template>
 
 <script>
+const GAODEMAP = {
+    amap: null,
+    autoComplete: null,
+    placeSearch: null,
+    infoWindow: null,
+    marker: null,
+};
 import MapLoader from './amap.js';
 export default {
     name: 'GaoDeMap',
     data() {
         return {
-
+            map: null
         };
     },
     created() {
         this.loadMap();
     },
     mounted() {
-
+        
     },
     methods: {
         loadMap() {
+            // 加载高德地图
             MapLoader().then(AMap => {
-                const map = new AMap.Map('mapContainer', {
+                GAODEMAP.AMap = AMap;
+                this.map = new GAODEMAP.AMap.Map('mapContainer', {
                     center: [116.397428, 39.90923],
-                    zoom: 17,
+                    zoom: 16,
                     resizeEnable: true
                 });
 
-                AMap.plugin(['AMap.Autocomplete', 'AMap.PlaceSearch'], function() {
-                    // 输入提示
-                    var autoOptions = {
-                        city: '北京',
-                        input: "keyword"
-                    };
-                    var auto = new AMap.Autocomplete(autoOptions);
-                    var placeSearch = new AMap.PlaceSearch({
-                        city: '北京',
-                        map: map
-                    });  //构造地点查询类
-                    AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
-                    function select(e) {
-                        placeSearch.setCity(e.poi.adcode);
-                        placeSearch.search(e.poi.name);  //关键字查询查询
-                    }
+                // 构造地点查询类
+                GAODEMAP.autoComplete = this.initAutoComplete(GAODEMAP.AMap, { city: '北京', input: "keyword" });
+                GAODEMAP.placeSearch = this.initPlaceSearch(GAODEMAP.AMap, { city: '北京', map: this.map });
+
+                // 注册监听，当选中某条记录时会触发
+                GAODEMAP.AMap.event.addListener(GAODEMAP.autoComplete, "select", e => {
+                    GAODEMAP.placeSearch.setCity(e.poi.adcode);
+                    GAODEMAP.placeSearch.search(e.poi.name);  //关键字查询查询
+                });
+
+                GAODEMAP.infoWindow = this.initInfoWindow(GAODEMAP.AMap);
+                GAODEMAP.infoWindow.open(this.map, [getLng(), getLat()]);
+
+                GAODEMAP.marker = this.initMarke(GAODEMAP.AMap);
+
+                this.map.on('click', e => {
+                    // 信息弹窗
+                    const info = [];
+                    info.push(`<div>aaa</div>`);
+                    const { getLng, getLat } = e.lnglat;
+
+                    // 添加marker标记
+                    this.add(GAODEMAP.marker);
+                    GAODEMAP.marker.setPosition(e.lnglat);
                 });
             }, err => {
                 console.log('地图加载失败', err);
             });
-        }
+        },
+        // 初始化autoComplete
+        initAutoComplete(AMap, options = {}) {
+            AMap.plugin(['AMap.Autocomplete'], () => {});
+            return new GAODEMAP.AMap.Autocomplete(options);
+        },
+        // 初始化placeSearch
+        initPlaceSearch(AMap, options = {}) {
+            AMap.plugin(['AMap.PlaceSearch'], () => {});
+            return new AMap.PlaceSearch(options);
+        },
+        // 初始化Marker
+        initMarke(AMap) {
+            AMap.plugin(['AMap.Marker'], () => {});
+            return new AMap.Marker();
+        },
+        // 初始化infoWindow
+        // lng - 经度，lat - 纬度
+        initInfoWindow(AMap, content = '') {
+            AMap.plugin(['AMap.InfoWindow'], () => {});
+            return new AMap.InfoWindow({ content: content });
+        },
     }
 };
 </script>
