@@ -216,6 +216,24 @@ export default new Router({
             }
         },
         {
+            path: '/LocalForage',
+            name: 'LocalForage',
+            component: () => import(/* webpackChunkName: "LocalForage" */'@/pages/LocalForage/index.vue'),
+            meta: {
+                title: 'LocalForage',
+                keepAlive: true
+            }
+        },
+        {
+            path: '/Test',
+            name: 'Test',
+            component: () => import(/* webpackChunkName: "Test" */'@/pages/Test/index.vue'),
+            meta: {
+                title: 'Test',
+                keepAlive: true
+            }
+        },
+        {
             path: '*',
             redirect: '/404',
             component: () => import(/* webpackChunkName: "404" */'@/pages/NotFound/index.vue'),
