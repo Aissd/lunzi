@@ -14,6 +14,9 @@ Vue.config.productionTip = false;
 Vue.use(Vuex);
 Vue.use(ElementUI);
 
+import share from 'share';
+console.log(share());
+
 // 导入插件
 import request from '@/api/request';
 // 在原型上扩展,这样不用在每个页面都导入request
