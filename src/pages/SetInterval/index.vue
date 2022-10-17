@@ -22,6 +22,9 @@ export default {
     // // 方法一：end --------------------
     // // 方法二：start --------------------
     mounted() {
+        this.$eventBus.$on('callfromson1', (res) => {
+            console.log('未加载过的setInterval页面', res);
+        });
         let timer = setInterval(() => {
             console.log(1);
         }, 1000);

@@ -18,6 +18,7 @@ Vue.use(ElementUI);
 import request from '@/api/request';
 // 在原型上扩展,这样不用在每个页面都导入request
 Vue.prototype.request = request;
+Vue.prototype.$eventBus = new Vue();
 
 router.beforeEach((to, from, next) => {
 	if (to.meta.title) {

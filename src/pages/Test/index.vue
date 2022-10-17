@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <test-input
+        <!-- <test-input
             class="border"
             style="font-size: 16px;"
             :disabled="testInput.isDisabled"
@@ -11,15 +11,21 @@
             @focus="onFocus"
             @blur="onBlur"
             @input="onInput">
-        </test-input>
+        </test-input> -->
+        <son1></son1>
+        <son2></son2>
     </div>
 </template>
 
 <script>
-import TestInput from './components/TestInput';
+// import TestInput from './components/TestInput';
+import son1 from './components/son1';
+import son2 from './components/son2';
 export default {
     components: {
-        TestInput
+        // TestInput
+        son1,
+        son2
     },
     data() {
         return {
